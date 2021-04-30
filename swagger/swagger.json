@@ -1,0 +1,260 @@
+
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is billinho-api",
+        "version": "1.0.0",
+        "title": "Billinho-api",
+        "contact": {
+            "email": "henriquemarcel2244@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "schemes": ["http"],
+    "host": "localhost:8000",
+    "basePath": "/",
+    "paths" : {
+        "/instituicao-de-ensino" : {
+            "get" : {
+                "summary" : "Busca todas as Instituições de Ensino",
+                "description": "",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Instituições de Ensino buscadas com sucesso.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    "400": {
+                        "description": "Erro ao buscar as Instituições de Ensino"
+                    }
+                }
+            },
+            "post" : {
+                "summary" : "Cria uma nova Instituição de Ensino",
+                "description": "",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Objeto de Criação da instituição de ensino",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "cnpj": {
+                                        "type": "string"
+                                    },
+                                    "tipo": {
+                                        "type": "string",
+                                        "$ref": "['Universidade', 'Creche','Escola']"
+                                    }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Instituição de Ensino criada com sucesso",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    "400": {
+                        "description": "Erro ao criar Instituição de Ensino",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        }, 
+        "/aluno" : {
+            "get" : {
+                "summary" : "Busca todos os Alunos",
+                "description": "",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Alunos buscados com sucesso.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    "400": {
+                        "description": "Erro ao buscar os Alunos"
+                    }
+                }
+            },
+            "post" : {
+                "summary" : "Cria um Aluno",
+                "description": "",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Objeto de Criação do Aluno",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "cpf": {
+                                        "type": "string"
+                                    },
+                                    "dataDeNascimento": {
+                                        "type": "string"
+                                    },
+                                    "telefoneCelular": {
+                                        "type": "number"
+                                    },
+                                    "genero": {
+                                        "type": "string"
+                                    },
+                                    "metodoDePagamento": {
+                                        "type": "string"
+                                    }
+
+
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Instituição de Ensino criada com sucesso",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    "400": {
+                        "description": "Erro ao criar Instituição de Ensino",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/matricula" : {
+            "get" : {
+                "summary" : "Busca todas as Matriculas",
+                "description": "",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Matriculas buscadas com sucesso.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    "400": {
+                        "description": "Erro ao buscar as Matriculas"
+                    }
+                }
+            },
+            "post" : {
+                "summary" : "Cria uma nova Matricula",
+                "description": "",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Objeto de Criação da Matricula",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "properties": {
+                                    "valorTotalDoCurso": {
+                                        "type": "number"
+                                    },
+                                    "quatidadeDeFaturas": {
+                                        "type": "number"
+                                    },
+                                    "diaDeVencimentoDaFatura": {
+                                        "type": "number"
+                                    },
+                                    "nomeDoCurso": {
+                                        "type": "string"
+                                    },
+                                    "alunoId": {
+                                        "type": "number"
+                                    },
+                                    "instituicaoId": {
+                                        "type": "number"
+                                    }
+
+
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Instituição de Ensino criada com sucesso",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    "400": {
+                        "description": "Erro ao criar Instituição de Ensino",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/fatura" : {
+            "get" : {
+                "summary" : "Busca todas as Faturas",
+                "description": "",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Faturas buscadas com sucesso.",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    "400": {
+                        "description": "Erro ao buscar as Faturas"
+                    }
+                }
+            }
+        }
+    }, 
+    "definitions": {
+        "InvalidResponse": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+
+        }
+    }
+}
